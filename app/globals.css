@@ -220,7 +220,7 @@ a {
 }
 .site-header.compact .nav-shell {
   min-height: 52px;
-  width: min(1040px, calc(100% - 48px));
+  width: min(1120px, calc(100% - 48px));
   border-radius: 18px;
 }
 .brand {
@@ -2048,6 +2048,12 @@ html[data-theme="light"] .projects {
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.04);
   font: inherit;
+}
+
+@media (max-width: 1200px) {
+  .search-trigger kbd {
+    display: none;
+  }
 }
 
 @media (max-width: 1080px) {
