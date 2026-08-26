@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
 import { ArrowLeft, Download, Mail } from "lucide-react";
+import { portfolioLinks } from "@/data/links";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -17,8 +18,8 @@ export default function NotFound() {
       <p>The page may have moved, or the address may be incorrect. The portfolio and résumé are still available below.</p>
       <div className="not-found-actions">
         <a className="button primary" href="/"><ArrowLeft size={17} /> Return home</a>
-        <a className="button" href="/Rahul-Choksi-Resume.pdf"><Download size={17} /> View Resume</a>
-        <a className="not-found-contact" href="mailto:choksirahul22@gmail.com"><Mail size={15} /> Contact Rahul</a>
+        <a className="button" href={portfolioLinks.resume}><Download size={17} /> View Resume</a>
+        <a className="not-found-contact" href={portfolioLinks.emailHref}><Mail size={15} /> Contact Rahul</a>
       </div>
     </section>
   </main>;

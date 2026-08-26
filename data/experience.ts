@@ -1,3 +1,5 @@
+import { portfolioLinks } from "./links";
+
 export const responsibilities = [
   "Develop scalable and responsive applications with React.js, Angular, Next.js, JavaScript, HTML5, CSS3, and SCSS.",
   "Translate Figma and PSD mockups into pixel-accurate, production-ready interfaces.",
@@ -23,7 +25,7 @@ export const journey = [
 ];
 
 export const education = [
-  { period: "2014 — 2018", title: "B.Tech — Computer Science & Engineering", place: "ITM Vocational University, Vadodara", result: "C.G.P.A. 9.3/10" },
+  { period: "2014 — 2018", title: "B.Tech — Computer Science & Engineering", place: "ITM Vocational University, Vadodara", result: "C.G.P.A. 9.3/10", url: portfolioLinks.university },
   { period: "2013 — 2014", title: "Higher Secondary Education", place: "Shree Swaminarayan Gurukul, Surat", result: "61%" },
   { period: "2011 — 2012", title: "Secondary Education", place: "Shree Swaminarayan Gurukul, Surat", result: "77.80%" },
 ];

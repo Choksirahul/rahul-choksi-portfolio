@@ -13,6 +13,7 @@ export type Project = {
   responsibilities: string[];
   contribution: string;
   visual: "portal" | "identity" | "commerce" | "dashboard";
+  url?: string;
 };
 export type ArchiveProject = { title: string; type: string; technologies: string[] };
 export type SkillGroup = { title: string; items: string[]; icon: LucideIcon; size?: "feature" | "wide" | "standard" | "compact" };

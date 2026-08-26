@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
-import { BriefcaseBusiness, MapPin } from "lucide-react";
+import { BriefcaseBusiness, ExternalLink, MapPin } from "lucide-react";
 import { useRef } from "react";
 import { responsibilities } from "@/data/experience";
+import { portfolioLinks } from "@/data/links";
 import { Reveal, SectionHeading } from "./ui";
 
 export function ExperienceTimeline() {
@@ -32,7 +33,16 @@ export function ExperienceTimeline() {
               </div>
               <div>
                 <span className="mono-label">Jun 2018 — Present</span>
-                <h3>1Rivet</h3>
+                <h3>
+                  <a
+                    className="verified-link"
+                    href={portfolioLinks.company}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    1Rivet <ExternalLink size={14} aria-hidden="true" />
+                  </a>
+                </h3>
                 <p>Sr. Associate L1 · Frontend Developer</p>
               </div>
               <div className="location">

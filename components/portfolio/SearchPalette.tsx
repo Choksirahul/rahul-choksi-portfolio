@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Clock3, Search, X } from "lucide-react";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
+import { portfolioLinks } from "@/data/links";
 import { archiveProjects, projects } from "@/data/projects";
 import { skillGroups } from "@/data/skills";
 import type { SearchItem } from "@/data/types";
@@ -19,7 +20,7 @@ const baseItems: SearchItem[] = [
   ...projects.map((item) => ({
     title: item.title,
     subtitle: item.technologies.join(" · "),
-    href: "#projects",
+    href: item.url ?? "#projects",
     group: "Projects",
     keywords: [
       ...item.technologies,
@@ -46,8 +47,8 @@ const baseItems: SearchItem[] = [
   ),
   {
     title: "1Rivet",
-    subtitle: "Sr Associate L1 · Frontend Developer",
-    href: "#experience",
+    subtitle: "Sr. Associate L1 · Frontend Developer",
+    href: portfolioLinks.company,
     group: "Experience",
     keywords: [
       "React",
@@ -62,14 +63,14 @@ const baseItems: SearchItem[] = [
   {
     title: "B.Tech — Computer Science & Engineering",
     subtitle: "ITM Vocational University · 9.3/10",
-    href: "#education",
+    href: portfolioLinks.university,
     group: "Education",
     keywords: ["education", "degree", "college", "computer science"],
   },
   {
     title: "Microsoft Exam 70-480",
     subtitle: "HTML5, JavaScript and CSS3 · 757/1000",
-    href: "#recognition",
+    href: portfolioLinks.microsoftCertification,
     group: "Certifications",
     keywords: ["certificate", "certification", "Microsoft", "award"],
   },
@@ -83,28 +84,28 @@ const baseItems: SearchItem[] = [
   {
     title: "Email Rahul",
     subtitle: "choksirahul22@gmail.com",
-    href: "mailto:choksirahul22@gmail.com",
+    href: portfolioLinks.emailHref,
     group: "Contact",
     keywords: ["contact", "email"],
   },
   {
     title: "Explore GitHub",
     subtitle: "github.com/Choksirahul",
-    href: "https://github.com/Choksirahul",
+    href: portfolioLinks.github,
     group: "Contact",
     keywords: ["contact", "code", "GitHub"],
   },
   {
     title: "LinkedIn",
     subtitle: "Connect with Rahul",
-    href: "https://www.linkedin.com/in/rahul-choksi-a22a88131",
+    href: portfolioLinks.linkedin,
     group: "Contact",
     keywords: ["contact", "LinkedIn", "profile"],
   },
   {
     title: "Download Rahul’s Resume",
     subtitle: "Open the PDF résumé",
-    href: "/Rahul-Choksi-Resume.pdf",
+    href: portfolioLinks.resume,
     group: "Actions",
     keywords: ["resume", "résumé", "CV", "download"],
   },
@@ -182,14 +183,11 @@ export function SearchPalette({
     setRecent(updated);
     close();
     if (item.href.startsWith("#"))
-      document
-        .querySelector(item.href)
-        ?.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-            .matches
-            ? "auto"
-            : "smooth",
-        });
+      document.querySelector(item.href)?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
     else if (item.href.startsWith("http")) {
       const opened = window.open(item.href, "_blank", "noopener,noreferrer");
       if (opened) opened.opener = null;

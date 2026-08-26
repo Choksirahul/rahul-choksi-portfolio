@@ -1,4 +1,5 @@
 import type { ArchiveProject, Project, ProjectCategory } from "./types";
+import { portfolioLinks } from "./links";
 
 export const projectFilters: Array<"All" | ProjectCategory> = ["All", "React", "Webflow", "Shopify", "Enterprise"];
 
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     overview: "A Shopify storefront for an alcohol testing platform focused on smart BrAC testing devices.",
     responsibilities: ["Develop and optimize storefront experiences", "Improve navigation and the customer engagement flow", "Implement responsive layouts and frontend enhancements"],
     contribution: "Created a more seamless cross-device storefront experience.",
+    url: portfolioLinks.keepr,
   },
   {
     number: "04", title: "DUI — Affiliate Dashboard", period: "Jul 2024 — Apr 2026",

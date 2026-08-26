@@ -15,5 +15,5 @@ export function SectionHeading({ eyebrow, title, copy, align = "left" }: { eyebr
 
 export function MagneticLink({ href, children, className = "", download, target }: { href: string; children: ReactNode; className?: string; download?: boolean | string; target?: string }) {
   const reduced = useReducedMotion();
-  return <motion.a href={href} className={`button ${className}`} download={download} target={target} rel={target ? "noreferrer" : undefined} whileHover={reduced ? undefined : { y: -3, scale: 1.015 }} whileTap={{ scale: .97 }} transition={{ type: "spring", stiffness: 340, damping: 22 }}>{children}</motion.a>;
+  return <motion.a href={href} className={`button ${className}`} download={download} target={target} rel={target ? "noopener noreferrer" : undefined} whileHover={reduced ? undefined : { y: -3 }} whileTap={{ y: 0 }} transition={{ type: "spring", stiffness: 340, damping: 22 }}>{children}</motion.a>;
 }
