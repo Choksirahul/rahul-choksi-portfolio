@@ -1,0 +1,23 @@
+/* The fixed header keeps the Hero's original out-of-flow composition. */
+.editorial-header {
+  position: fixed; inset: 0 0 auto; left: 0; transform: none; width: 100%;
+  min-height: 96px; padding-inline: max(36px, calc((100vw - 1310px) / 2));
+  background: #344c36; border: 0;
+  transition: background-color .45s cubic-bezier(.22, 1, .36, 1);
+}
+.editorial-header[data-at-top="true"] { background-color: transparent; }
+.editorial-header .editorial-nav { gap: clamp(18px, 2.1vw, 34px); }
+.editorial-header .editorial-nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+.editorial-header .editorial-actions { gap: 12px; margin-left: clamp(20px, 2.4vw, 38px); }
+.editorial-header .global-search-trigger { display: grid; width: 44px; height: 44px; flex-shrink: 0; color: var(--ivory); }
+html { scroll-padding-top: 116px; }
+.mobile-editorial-nav { top: calc(100% + 8px); right: 16px; max-height: calc(100dvh - 112px); overflow-y: auto; overscroll-behavior: contain; }
+@media (max-width: 1099px) {
+  .editorial-header { min-height: 76px; padding-inline: 16px; }
+  .editorial-header .editorial-nav, .editorial-header .editorial-actions > .pill { display: none; }
+  .editorial-header .editorial-actions { margin-left: auto; gap: 10px; }
+  .editorial-header .mobile-trigger { display: grid !important; width: 44px; height: 44px; }
+  html { scroll-padding-top: 96px; }
+}
+@media (min-width: 1100px) { .editorial-header .mobile-trigger { display: none !important; } }
+@media (max-width: 374px) { .editorial-header .editorial-brand { font-size: 1rem; gap: 6px; } .editorial-header .editorial-actions { gap: 8px; } }
