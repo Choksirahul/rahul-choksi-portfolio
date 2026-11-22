@@ -13,3 +13,24 @@ html[data-intro="pending"] .portfolio-splash { display: flex; position: fixed; i
 .splash-track > span { display: block; height: 100%; width: 100%; transform: scaleX(0); background: #ffb313; }
 @media (max-width: 480px) { .splash-top > span { max-width: 110px; } .splash-bottom > div:last-child { font-size: .55rem; letter-spacing: .06em; } }
 @media (prefers-reduced-motion: reduce) { html[data-intro="pending"] .portfolio-splash { display: none; } }
+/* Celestial construction → orbital signature → four-plane aperture. */
+html[data-intro="pending"] .portfolio-splash { background: transparent; isolation: isolate; }
+.splash-apertures { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.splash-aperture { position: absolute; width: 50.1%; height: 50.1%; background: #080908; }
+.aperture-0 { left: 0; top: 0; }.aperture-1 { right: 0; top: 0; }.aperture-2 { left: 0; bottom: 0; }.aperture-3 { right: 0; bottom: 0; }
+.splash-center { position: relative; width: 100%; }
+.celestial-emblem { position: relative; width: clamp(180px, 22vw, 285px); max-width: 100%; margin: -40px auto 12px; aspect-ratio: 1; color: #ffb313; }
+.celestial-symbol { position: relative; display: block; width: 100%; height: 100%; }
+.celestial-halo { position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, #ffb31322, #ffb31308 42%, transparent 72%); opacity: 0; }
+.splash-name { opacity: 1; overflow: hidden; font-size: clamp(2.7rem, 7vw, 7rem); line-height: 1.22; padding-bottom: .08em; }
+.splash-name > span { display: inline-block; color: inherit; transform: translateY(110%); }
+.splash-name i { font-style: normal; color: #ffb313; }
+.splash-role { margin-top: 12px; }
+.splash-bottom { position: relative; }
+@media (max-width: 480px) { .celestial-emblem { margin-top: -20px; } .splash-name > span { display: block; } }
+.celestial-construction, .celestial-orbit { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+.celestial-core, .celestial-satellites { opacity: 0; }
+.celestial-nodes circle { opacity: 0; }
+.celestial-construction { stroke-width: 1.2; stroke-opacity: .75; }
+.celestial-orbit { stroke-width: 1.05; }
+.celestial-nodes circle { stroke: currentColor; stroke-width: 1; }

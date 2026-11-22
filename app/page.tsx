@@ -1,8 +1,10 @@
 import Portfolio from "./portfolio";
 import { getSiteUrl } from "@/lib/site-config";
 import { portfolioLinks } from "@/data/links";
+import { headers } from "next/headers";
 
-export default function Home() {
+export default async function Home() {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   const siteUrl = getSiteUrl();
   const person = {
     "@context": "https://schema.org", "@type": "Person", name: "Rahul Choksi", jobTitle: "Senior Frontend Developer",
@@ -11,5 +13,5 @@ export default function Home() {
     sameAs: [portfolioLinks.github, portfolioLinks.linkedin],
     knowsAbout: ["React.js", "Angular", "Next.js", "TypeScript", "Webflow", "Shopify", "Frontend Architecture", "Responsive Web Design"],
   };
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} /><Portfolio /></>;
+  return <><script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} /><Portfolio /></>;
 }
