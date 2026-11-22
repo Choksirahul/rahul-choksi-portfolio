@@ -2,8 +2,12 @@
 html[data-intro="pending"] { touch-action: none; }
 html[data-intro="pending"] .portfolio-splash { display: flex; position: fixed; inset: 0; z-index: 2000; flex-direction: column; justify-content: space-between; padding: clamp(24px, 4vw, 64px); background: #080908; color: #f4efdf; touch-action: none; }
 .splash-top, .splash-bottom > div:last-child { display: flex; justify-content: space-between; align-items: center; gap: 20px; font: 600 .7rem/1.4 var(--font-hero-sans), sans-serif; letter-spacing: .12em; }
-.splash-top button { border: 1px solid #f4efdf55; background: transparent; color: inherit; border-radius: 999px; padding: 12px 20px; min-height: 44px; cursor: pointer; font-size: .85rem; letter-spacing: 0; }
-.splash-top button:hover { border-color: #ffb313; }
+.splash-top button { border: 1px solid #f4efdf55; background: transparent; color: inherit; border-radius: 999px; padding: 12px 20px; min-height: 44px; cursor: pointer; font-size: .85rem; letter-spacing: 0; transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.splash-top button:hover { border-color: #ffb313; background: #ffb31314; }
+.splash-top button:focus-visible { outline: 0; border-color: #ffb313; background: #ffb313; color: #080908; box-shadow: 0 0 0 5px #ffb31338, 0 0 32px #ffb31370; transform: translateY(-2px) scale(1.04); animation: skip-focus-pulse 1.15s ease-in-out infinite alternate; }
+.splash-top button:focus-visible span { display: inline-block; animation: skip-arrow-nudge .75s ease-in-out infinite alternate; }
+@keyframes skip-focus-pulse { to { box-shadow: 0 0 0 8px #ffb31320, 0 0 44px #ffb31399; } }
+@keyframes skip-arrow-nudge { to { transform: translate(3px, -3px); } }
 .splash-center { align-self: center; text-align: center; }
 .splash-star { width: clamp(36px, 4vw, 64px); height: clamp(36px, 4vw, 64px); margin: 0 auto 28px; }
 .splash-name { opacity: 0; margin: 0; font: 900 clamp(3rem, 8vw, 8rem)/1.15 var(--font-hero-serif), Georgia, serif; letter-spacing: -.055em; }
@@ -12,7 +16,7 @@ html[data-intro="pending"] .portfolio-splash { display: flex; position: fixed; i
 .splash-track { height: 1px; background: #f4efdf30; margin-bottom: 20px; }
 .splash-track > span { display: block; height: 100%; width: 100%; transform: scaleX(0); background: #ffb313; }
 @media (max-width: 480px) { .splash-top > span { max-width: 110px; } .splash-bottom > div:last-child { font-size: .55rem; letter-spacing: .06em; } }
-@media (prefers-reduced-motion: reduce) { html[data-intro="pending"] .portfolio-splash { display: none; } }
+@media (prefers-reduced-motion: reduce) { html[data-intro="pending"] .portfolio-splash { display: none; } .splash-top button, .splash-top button:focus-visible, .splash-top button:focus-visible span { animation: none; transition: none; } }
 /* Celestial construction → orbital signature → four-plane aperture. */
 html[data-intro="pending"] .portfolio-splash { background: transparent; isolation: isolate; }
 .splash-apertures { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }

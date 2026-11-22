@@ -34,7 +34,7 @@ export default function Splash() {
       window.dispatchEvent(new Event(INTRO_EVENT));
       if (focus) document.querySelector<HTMLElement>(".editorial-brand")?.focus({ preventScroll: true });
       else if (previousFocus instanceof HTMLElement && previousFocus !== document.body) previousFocus.focus({ preventScroll: true });
-      else if (document.activeElement === skip.current) document.querySelector<HTMLElement>(".editorial-brand")?.focus({ preventScroll: true });
+      else if (document.activeElement === skip.current) skip.current?.blur();
     };
     const timeline = gsap.timeline({ defaults: { ease: "power2.inOut" }, onComplete: () => finish() });
     let assetsReady = false;
